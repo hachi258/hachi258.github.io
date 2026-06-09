@@ -271,9 +271,93 @@
 }
 
 /* 咨询客服页专属 */
+
+.contact-layout {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.contact-side {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-intro-card,
+.contact-info-card {
+    color: #eff2ff;
+}
+
+.contact-intro-card h3,
+.contact-info-card h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.contact-intro-card p,
+.contact-info-card p {
+    color: #d6daf4;
+    line-height: 1.7;
+}
+
+.contact-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    color: #e7ebff;
+}
+
+.contact-highlights li + li {
+    margin-top: 8px;
+}
+
 .contact-form-container {
-    max-width: 700px;
-    margin: 0 auto;
+    flex: 1;
+    max-width: 760px;
+}
+
+.contact-form .form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 16px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #edf1ff;
+    font-weight: 500;
+}
+
+.contact-form .form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-radius: 14px;
+}
+
+.contact-form .form-control:focus {
+    border-color: #86a1ff;
+    box-shadow: 0 0 0 3px rgba(90, 124, 255, 0.18);
+}
+
+.contact-form .btn-block {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.bottom-logos {
+    text-align: center;
+    color: #d4d9f2;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 18px;
 }
 
 /* 响应式 */
@@ -300,9 +384,23 @@
     }
 }
 
+@media (max-width: 992px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .contact-side {
+        flex: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .left-cards {
         grid-template-columns: 1fr;
+    }
+
+    .contact-form .form-row {
+        flex-direction: column;
     }
 
     .right-stats {
