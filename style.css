@@ -1,0 +1,163 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Poppins', 'Microsoft YaHei', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 12, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 15px 0;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.navbar-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+.navbar-logo span {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+
+/* ===== 主内容区（浮在轮播之上） ===== */
+.main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 100px auto 60px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.top-section {
+    display: flex;
+    gap: 60px;
+    flex: 1;
+}
+
+
+.left-cards {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card .en {
+    font-size: 12px;
+    color: #7a7d9a;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.info-card-1 {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1px 24px;
+    width: 400px;
+}
+
+.info-card-1 a{
+    font-size: 23px;
+    color: #ffffff;
+}
+
+.info-card-2 {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1px 24px;
+    width: 600px;
+    height: 150px;
+}
+.info-card-2 a{
+    font-size: 23px;
+    color: #ffffff;
+}
+
+.info-card-3 {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1px 24px;
+    width: 300px;
+}
+
+.info-card-3 a{
+    font-size: 23px;
+    color: #ffffff;
+}
+.info-card-4 {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 1px 24px;
+    width: 600px;
+    height: 150px;
+}   
+
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.right-content a{
+    font-size: 23px;
+    color: #ffffff;
+}
+.right-text {
+    background: rgba(20, 22, 36, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    height: 300px;
+}
+
+.right-text h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: #000000;
+    background: transparent;
+}
