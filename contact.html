@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>咨询客服</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
@@ -11,8 +12,6 @@
 </head>
 
 <body>
-
-
     <nav class="navbar-fixed-top">
         <div class="navbar-container">
             <div class="navbar-logo"><img src="img/logo.jpg" onclick="location.href='index.html'">
@@ -28,22 +27,45 @@
         </div>
     </nav>
 
-    <div class>
-        <div class="page-header">
-            <h1>咨询客服</h1>
-            <p>我们会在24小时内回复您</p>
+    <div class="container-fluid">
+        <div class="main-content">
+            <div class="page-header">
+                <h1>咨询客服</h1>
+                <p>我们会在24小时内回复您</p>
+            </div>
+
+            <div class="contact-layout">
+                <aside class="contact-side">
+                    <div class="glass-card contact-intro-card">
+                        <h3>合作咨询</h3>
+                        <p>如果你有品牌策划、视觉设计、活动推广或长期合作的需求，欢迎填写表单。</p>
+                        <ul class="contact-highlights">
+                            <li>✔ 24小时内回复</li>
+                            <li>✔ 专业视觉方案支持</li>
+                            <li>✔ 可按项目/长期合作方式对接</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card contact-info-card">
+                        <h4>联系信息</h4>
+                        <p>邮箱：970359191@qq.com</p>
+                        <p>电话：114-5141919810</p>
+                        <p>地址：浙江省宁波市海曙区学院路899号</p>
+                    </div>
+                </aside>
+                <section class="glass-card contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group"><label>姓名</label><input type="text" class="form-control" id="name" placeholder=""></div>
+                            <div class="form-group"><label>邮箱</label><input type="email" class="form-control" id="email" placeholder=""></div>
+                        </div>
+                        <div class="form-group"><label>合作方向</label><input type="text" class="form-control" id="topic" placeholder="如：品牌设计 / 视觉策划"></div>
+                        <div class="form-group"><label>留言内容</label><textarea class="form-control" id="message" rows="5" placeholder="请说明您的需求"></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-block">提交咨询</button>
+                    </form>
+                    <div id="formFeedback" class="mt-20"></div>
+                </section>
+            </div>
         </div>
-        <div class="glass-card contact-form-container">
-            <form id="contactForm">
-                <div class="form-group"><label>姓名 *</label><input type="text" class="form-control" id="name"></div>
-                <div class="form-group"><label>邮箱 *</label><input type="email" class="form-control" id="email"></div>
-                <div class="form-group"><label>留言内容 *</label><textarea class="form-control" id="message"
-                        rows="5"></textarea></div>
-                <button type="submit" class="btn btn-primary btn-block">提交咨询</button>
-            </form>
-            <div id="formFeedback" class="mt-20"></div>
-        </div>
-        <div class="bottom-logos">...</div>
     </div>
 
     <footer class="footer">...</footer>
