@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入我们 - XX科技</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/page.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar-fixed-top">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="img/logo.jpg" alt="Logo">
+                <span>XX视传</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li class="active"><a href="careers.html">加入我们</a></li>
+                <li><a href="product.html">作品</a></li>
+                <li><a href="contact.html">联系合作</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 主内容 -->
+    <div>
+        <div class="page-header">
+            <h1>加入我们</h1>
+            <p>CAREER · 一起创造未来</p>
+        </div>
+
+        <div class="career-values">
+            <div class="career-value-item"style="color: black;">
+                <div class="card-icon" style="margin: 0 auto 20px;"></div>
+                <h4>热爱视觉</h4>
+                <p>对图形、色彩、字体有执念，相信设计能改变世界</p>
+            </div>
+            <div class="career-value-item" style="color: black;">
+                <div class="card-icon" style="margin: 0 auto 20px;"></div>
+                <h4>专业严谨</h4>
+                <p>注重细节，追求每一处像素的精准</p>
+            </div>
+            <div class="career-value-item" style="color: black;">
+                <div class="card-icon" style="margin: 0 auto 20px;"></div>
+                <h4>开放共创</h4>
+                <p>一起成长，互相成就</p>
+            </div>
+        </div>
+
+        <h2 class="text-center" style="margin-bottom: 30px;">热招职位</h2>
+        <div class="job-list">
+            <div class="job-item">
+                <div>
+                    <h4>品牌视觉设计师</h4>
+                    <!-- <h4>品牌视觉设计师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;精通品牌VI系统设计，有完整落地案例</h4> -->
+                </div>
+                <button class="btn btn-primary apply-btn" data-job="品牌视觉设计师">立即申请</button>
+            </div>
+            <div class="job-item">
+                <div>
+                    <h4>平面设计师</h4>
+                </div>
+                <button class="btn btn-primary apply-btn" data-job="平面设计师">立即申请</button>
+            </div>
+            <div class="job-item">
+                <div>
+                    <h4>字体/排版设计师</h4>
+                </div>
+                <button class="btn btn-primary apply-btn" data-job="字体/排版设计师">立即申请</button>
+            </div>
+            <div class="job-item">
+                <div>
+                    <h4>美术联考老师</h4>
+                </div>
+                <button class="btn btn-primary apply-btn" data-job="美术联考老师">立即申请</button>
+            </div>
+        </div>
+
+        <!-- 投递表单 -->
+        <div class="glass-card" style="max-width: 800px; margin: 40px auto 0;">
+            <h3 class="text-center">投递简历</h3>
+            <form id="jobApplicationForm">
+                <div class="row">
+                    <div class="col-md-6"><input type="text" class="form-control" id="applicantName" placeholder="姓名 *">
+                    </div>
+                    <div class="col-md-6"><input type="email" class="form-control" id="applicantEmail"
+                            placeholder="邮箱 *"></div>
+                </div>
+                <select class="form-control" id="applicantJob" style="margin: 15px 0;">
+                    <option value="">请选择职位 *</option>
+                    <option>品牌视觉设计师</option>
+                    <option>平面设计师</option>
+                    <option>字体/排版设计师</option>
+                    <option>美术联考老师</option>
+                </select>
+                <textarea class="form-control" id="applicantIntro" rows="4" placeholder="自我介绍 / 作品链接"></textarea>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">提交申请</button>
+            </form>
+            <div id="jobFeedback" class="mt-20"></div>
+        </div>
+
+        <div class="bottom-logos">...</div>
+    </div>
+
+    <footer class="footer">...</footer>
+</script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.apply-btn').on('click', function () {
+                var job = $(this).data('job');
+                $('#applicantJob').val(job);
+                $('html, body').animate({ scrollTop: $('#jobApplicationForm').offset().top - 100 }, 500);
+            });
+            $('#jobApplicationForm').on('submit', function (e) {
+                e.preventDefault();
+                var name = $('#applicantName').val().trim();
+                var email = $('#applicantEmail').val().trim();
+                var job = $('#applicantJob').val();
+                if (!name || !email || !job) {
+                    $('#jobFeedback').html('<div class="alert alert-warning">请填写完整信息！</div>');
+                    return;
+                }
+                var applications = JSON.parse(localStorage.getItem('jobApplications') || '[]');
+                applications.unshift({ id: Date.now(), name: name, email: email, job: job, time: new Date().toLocaleString() });
+                localStorage.setItem('jobApplications', JSON.stringify(applications));
+                $('#jobFeedback').html('<div class="alert alert-success">申请提交成功！</div>');
+                $('#jobApplicationForm')[0].reset();
+                setTimeout(function () { $('#jobFeedback').empty(); }, 3000);
+            });
+        });
+    </script>
+</body>
+
+</html>

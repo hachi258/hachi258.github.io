@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品 </title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/page.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar-fixed-top">
+    <div class="navbar-container">
+        <div class="navbar-logo">
+            <img src="img/logo.jpg" alt="">
+            <span>XX视传</span>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="careers.html">加入我们</a></li>
+            <li class="active"><a href="product-detail.html">作品</a></li>
+            <li><a href="contact.html">联系合作</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 主内容 -->
+<div>
+    <div class="page-header">
+        <h1>设计作品</h1>
+        <p>作品集</p>
+    </div>
+
+    <!-- 作品展示区 -->
+    <div class="works-container">
+        <div class="works-counter" id="worksCounter"></div>
+        <div class="works-carousel" id="worksCarousel">
+            <!-- 作品1 -->
+            <div class="works-slide active" data-index="0">
+                <div style="height: 500px; width: 300px;gap: 200px; display: flex;">
+                <img src="img/painting2.jpg">
+                <img src="img/painting1.jpg">
+                <img src="img/painting3.jpg" alt="">
+            </div>
+                <div class="works-info">
+                    <h2>请输入文本</h2>
+                </div>
+            </div>
+            <!-- 作品2 -->
+            <div class="works-slide" data-index="1">
+                <img src="img/painting4.jpg" alt="">
+                <div class="works-info">
+                    <h2>请输入文本</h2>
+                </div>
+            </div>
+            <div class="works-slide" data-index="2" style="padding-left:250px ;">
+                <img src="img/painting5.jpg" style="width: 900px;height:500px;">
+                <div class="works-info">
+                </div>
+                <h2 style="padding-left:300px;">请输入文本</h2>
+            </div>
+        </div>   
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2025 视研社 VISLAB | 视觉传达设计工作室 | 上海市静安区愚园路创意园108号 | 021-8888 6666</p>
+</footer>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    let currentIndex = 0;
+    const totalWorks = 3; 
+
+    // 更新显示
+    function updateDisplay() {
+        // 隐藏所有作品
+        $('.works-slide').removeClass('active');
+        // 显示当前作品
+        $('.works-slide').eq(currentIndex).addClass('active');
+        // 更新指示器高亮
+        updateCounter();
+    }
+
+    // 更新作品序号指示器
+    function updateCounter() {
+        var html = '';
+        for (var i = 0; i < totalWorks; i++) {
+            const isActive = (i === currentIndex);
+            html += `
+                <div class="counter-item ${isActive ? 'active' : ''}" onclick="goToWork(${i})" style="font-family:宋体">
+                    <h4>作品${i + 1}</h4>
+                </div>
+            `;
+        }
+        $('#worksCounter').html(html);
+    }
+
+
+
+    // 直接跳转到指定作品
+    function goToWork(index) {
+        currentIndex = index;
+        updateDisplay();
+    }
+
+
+    // 页面加载完成
+    $(document).ready(function() {
+        updateDisplay();
+    });
+</script>
+
+</body>
+</html>
