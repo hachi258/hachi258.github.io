@@ -67,6 +67,8 @@ body {
     display: flex;
     gap: 60px;
     flex: 1;
+    align-items: center;
+    min-height: 480px;
 }
 
 
@@ -132,6 +134,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 .right-content a{
     font-size: 23px;
@@ -141,9 +145,10 @@ body {
     background: rgba(20, 22, 36, 0.6);
     backdrop-filter: blur(10px);
     border-radius: 24px;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    height: 300px;
+    padding: 18px 20px;
+    width: 100%;
+    max-width: 430px;
+    height: 350px;
 }
 
 .right-text h2 {
@@ -151,7 +156,14 @@ body {
     margin-bottom: 20px;
 }
 
-/* ===== 页脚 ===== */
+.item img {
+    display: block;
+    width: 220px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
 .footer {
     position: relative;
     z-index: 2;
